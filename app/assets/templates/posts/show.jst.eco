@@ -1,0 +1,4 @@
+<a href="<%= @post.get('url') %>" class="title"><%= @post.get('title') %></a>
+<p><%= @post.get('tagline') %></p>
+
+

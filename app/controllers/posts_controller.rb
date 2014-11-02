@@ -9,15 +9,15 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		note = Note.create notes_params
-		respond_with note
+		note = Post.create post_params
+		respond_with post
 	end
 
 	def update
-		post.update_attributes post_params
+		post.update_attributes( post_params )
 
-		respond_with( note ) do |format| 
-			format.json { render json: note }
+		respond_with( post ) do |format| 
+			format.json { render json: post }
 		end
 	end
 
@@ -25,21 +25,17 @@ class PostsController < ApplicationController
  		respond_with post.destroy()
  	end
 
-	def notes
-		@notes ||= Note.all
-	end
-
 	def posts 
 		@posts ||= Posts.all
 	end
 
 	def post
-		@post ||= Post.find post_params
+		@post ||= Post.find( post_params )
 	end
 
 	private 
 
 		def post_params
-			params.permit :title, :tagline, :url
+			params.permit( :title, :tagline, :url )
 		end
 end
