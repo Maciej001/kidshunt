@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 		@post ||= Post.find post_params
 	end
 
-	private
+	private 
 
 		def post_params
 			params.permit :title, :tagline, :url
